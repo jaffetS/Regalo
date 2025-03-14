@@ -1,0 +1,110 @@
+/* Estilos generales */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Sobre moderno */
+.envelope {
+    width: 320px;
+    height: 220px;
+    background-color: #ff66b2;
+    position: relative;
+    cursor: pointer;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.5s ease;
+    transform-origin: center;
+}
+
+.envelope::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 0;
+    width: 100%;
+    height: 40px;
+    background-color: white;
+    border-radius: 10px 10px 0 0;
+}
+
+.envelope .flap {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%) rotate(0deg);
+    transform-origin: top center;
+    width: 100%;
+    height: 100px;
+    background-color: white;
+    border-radius: 0 0 20px 20px;
+    transition: transform 0.5s ease-in-out;
+}
+
+.envelope:hover .flap {
+    transform: translateX(-50%) rotate(180deg);
+}
+
+/* Carta */
+.letter {
+    visibility: hidden;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    padding: 50px;
+    overflow: auto;
+    z-index: 999;
+    opacity: 0;
+    transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.letter-content {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 18px;
+    line-height: 1.6;
+    overflow-y: auto; /* Permite desplazamiento si el contenido es grande */
+    padding-bottom: 20px; /* Agrega un poco de espacio extra */
+}
+
+.letter h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.letter p {
+    margin-bottom: 20px;
+}
+
+.close-button {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #ff66b2;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.close-button:hover {
+    background-color: #ff3385;
+}
+
+/* Mostrar la carta con animación */
+.letter.show {
+    visibility: visible;
+    opacity: 1;
+}
